@@ -1,3 +1,16 @@
 <HomePage>:
-    Label:
-        text: "Homepage"
+    FloatLayout:
+        canvas:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "icones/bg1.png"
+        Label:
+            pos_hint: {"right": 1, "top": 1}
+            size_hint: 1, 0.85
+            text: "Homepage"
+        Button:
+            pos_hint: {"right": 0.33, "top": 0.15}
+            size_hint: 0.33, 0.15
+            text: "Ir para Ajustes"
+            on_release: app.mudar_tela("ajustespage")

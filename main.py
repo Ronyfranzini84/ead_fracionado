@@ -1,6 +1,6 @@
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen
 
 class HomePage(Screen):
     pass
@@ -8,14 +8,14 @@ class HomePage(Screen):
 class AjustesPage(Screen):
     pass
 
-GUI = Builder.load_file('main.kv') 
-
+GUI = Builder.load_file("main.kv")
 class MainApp(App):
-
     def build(self):
         return GUI
     
-    def on_start(self):
-        pass
+    def mudar_tela(self, id_tela):
+        print(id_tela)
+        gerenciadir_telas = self.root.ids["screen_manager"]
+        gerenciadir_telas.current = id_tela
     
 MainApp().run()
