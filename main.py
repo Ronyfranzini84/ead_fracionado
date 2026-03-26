@@ -6,17 +6,14 @@ import os
 from functools import partial
 from datetime import date
 from kivy.uix.screenmanager import ScreenManager, Screen
+from telas import *
 
-
-class LoginPage(Screen):   
-    pass
-
-
-class HomePage(Screen, Image):
-    pass
 
 class MainApp(App):
     def mudar_tela(self, id_tela):
-        self.root.ids["screen_manager"].current = id_tela
+        self.root.ids["screen_manager"].current = id_tela # type: ignore
+
+    def build(self):
+        return Builder.load_file("main.kv")
 
 MainApp().run()

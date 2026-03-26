@@ -1,5 +1,7 @@
 #:include kv/loginpage.kv
 #:include kv/homepage.kv
+#:include kv/criarlogin.kv
+#:include kv/boxpage.kv
 #:import utils kivy.utils
 
 FloatLayout:
@@ -23,6 +25,12 @@ FloatLayout:
         HomePage:
             name: "homepage"
             id: homepage
+        CriarLoginPage:
+            name: "criarconta"
+            id: criarconta
+        BoxPage:
+            name: "boxpage"
+            id: boxpage
 
 
 

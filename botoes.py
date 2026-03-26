@@ -8,3 +8,6 @@ class ImageButton(ButtonBehavior, Image):
 
 class LabelButton(ButtonBehavior, Label):
     pass
+
+class Button(ButtonBehavior, Label):
+    pass
