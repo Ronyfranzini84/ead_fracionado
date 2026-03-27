@@ -25,6 +25,13 @@
                 height: self.minimum_height
                 row_default_height: "90dp"
                 row_force_default: True
+                Label:
+                    text: "Nenhum apontamento carregado ainda. Use esta tela para acompanhar os itens validados do dia."
+                    text_size: self.width - dp(24), None
+                    halign: "left"
+                    valign: "middle"
+                    padding: "12dp", "12dp"
+                    color: utils.get_color_from_hex("#D9F3FF")
         FloatLayout:
             pos_hint: {"right": 1, "top": 0.12}
             size_hint: 1, 0.12

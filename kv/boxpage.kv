@@ -30,6 +30,13 @@
                 height: self.minimum_height
                 row_default_height: "90dp"
                 row_force_default: True
+                Label:
+                    text: "Area reservada para caixas e consultas rapidas. Adicione aqui os atalhos ou registros operacionais que fizerem sentido para o fluxo."
+                    text_size: self.width - dp(24), None
+                    halign: "left"
+                    valign: "middle"
+                    padding: "12dp", "12dp"
+                    color: utils.get_color_from_hex("#D9F3FF")
 
         # BARRA INFERIOR
         FloatLayout:

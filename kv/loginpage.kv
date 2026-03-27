@@ -38,7 +38,7 @@
                     pos: self.pos
                     size: self.size
                     source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
-            on_release: app.mudar_tela("homepage")
+                    on_release: root.fazer_login()
             text: "Faça seu Login"
             pos_hint: {"right": 0.45, "top": 0.3}
             size_hint: 0.4, 0.2

@@ -29,8 +29,13 @@
             hint_text: "Confirmar Senha"
             pos_hint: {"right": 0.9, "top": 0.4}
             size_hint: 0.8, 0.1
-        
-
+        Label:
+            id: mensagem_criar_conta
+            text: "[color=#00CFDB]Preencha os dados para criar a conta[/color]"
+            bold: True
+            markup: True
+            pos_hint: {"right": 0.9, "top": 0.3}
+            size_hint: 0.8, 0.08
         Button:
             background_normal: ""
             background_down: ""
@@ -40,11 +45,10 @@
                     pos: self.pos
                     size: self.size
                     source: "icones/botao.png" if self.state == "normal" else "icones/botao_apertado.png"
-                    id: botao_criar_conta
-                    on_release: print("novo login")
             text: "Criar Conta"
-            pos_hint: {"right": 0.95, "top": 0.3}
+            pos_hint: {"right": 0.95, "top": 0.22}
             size_hint: 0.4, 0.2
+            on_release: root.criar_conta()
         FloatLayout:
             pos_hint: {"right": 1, "top": 0.12}
             size_hint: 1, 0.12
@@ -56,4 +60,6 @@
                 source: "icones/voltar.png"
                 on_release: app.mudar_tela("loginpage")
 
-            
+                on_release: app.mudar_tela("loginpage")
+
+
