@@ -29,6 +29,7 @@
             hint_text: "Confirmar Senha"
             pos_hint: {"right": 0.9, "top": 0.4}
             size_hint: 0.8, 0.1
+        
 
         Button:
             background_normal: ""
@@ -48,11 +49,7 @@
             pos_hint: {"right": 1, "top": 0.12}
             size_hint: 1, 0.12
             canvas:
-                Color:
-                    rgb: utils.get_color_from_hex("#006D7E")
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
+
             ImageButton:
                 pos_hint: {"right": 0.2, "top": 0.9}
                 size_hint: 0.2, 0.8

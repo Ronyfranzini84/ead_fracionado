@@ -8,11 +8,6 @@
                 pos: self.pos
                 source: "icones/bg1.png"
         Label:
-            canvas.before:
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-                    source: "icones/botao_fino.png"
             pos_hint: {"right": 0.85, "top": 0.95}
             size_hint: 0.7, 0.2
             text: "Home Page"
@@ -34,14 +29,15 @@
             pos_hint: {"right": 1, "top": 0.12}
             size_hint: 1, 0.12
             canvas:
-                Color:
-                    rgb: utils.get_color_from_hex("#006D7E")
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
+
             ImageButton:
                 pos_hint: {"right": 0.2, "top": 0.9}
                 size_hint: 0.2, 0.8
                 source: "icones/voltar.png"
                 on_release: app.mudar_tela("loginpage")
+            ImageButton:
+                pos_hint: {"right": 0.98, "top": 0.9}
+                size_hint: 0.2, 0.8
+                source: "icones/salesman.png"
+                on_release: app.mudar_tela("boxpage")
             
