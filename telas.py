@@ -1,6 +1,8 @@
 from kivy.app import App
 from kivy.uix.screenmanager import Screen
 
+from auth_service import auth_service
+
 
 def _formatar_mensagem(texto, cor):
     return f"[color={cor}]{texto}[/color]"
@@ -34,8 +36,15 @@ class LoginPage(BasePage):
             self.mostrar_mensagem("mensagem_login", "Digite um e-mail valido.", "#FF6B6B")
             return
 
-        self.ids.email_input.text = email.lower()
-        self.mostrar_mensagem("mensagem_login", "Campos validados. Abrindo painel.", "#52FF8F")
+        email = email.lower()
+        autenticado, mensagem = auth_service.autenticar(email, senha)
+        if not autenticado:
+            self.mostrar_mensagem("mensagem_login", mensagem, "#FF6B6B")
+            return
+
+        self.ids.email_input.text = email
+        self.ids.senha_input.text = ""
+        self.mostrar_mensagem("mensagem_login", mensagem, "#52FF8F")
         self.mudar_tela("homepage")
 
 
@@ -61,16 +70,21 @@ class CriarLoginPage(BasePage):
             self.mostrar_mensagem("mensagem_criar_conta", "As senhas precisam ser iguais.", "#FF6B6B")
             return
 
+        criada, mensagem = auth_service.criar_conta(email, senha)
+        if not criada:
+            self.mostrar_mensagem("mensagem_criar_conta", mensagem, "#FF6B6B")
+            return
+
         login_page = self.manager.get_screen("loginpage") if self.manager else None
         if login_page is not None:
             login_page.ids.email_input.text = email
             login_page.ids.senha_input.text = ""
-            login_page.mostrar_mensagem("mensagem_login", "Conta preparada. Faca o login.", "#52FF8F")
+            login_page.mostrar_mensagem("mensagem_login", "Conta criada. Faca o login.", "#52FF8F")
 
         self.ids.email_input.text = ""
         self.ids.senha_input.text = ""
         self.ids.confirmar_senha_input.text = ""
-        self.mostrar_mensagem("mensagem_criar_conta", "Cadastro local validado com sucesso.", "#52FF8F")
+        self.mostrar_mensagem("mensagem_criar_conta", mensagem, "#52FF8F")
         self.mudar_tela("loginpage")
 
 
